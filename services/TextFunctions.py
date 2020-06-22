@@ -11,9 +11,10 @@ def write_doc(text, language):
     fichier.close()
     if language == "fr-FR":
         message = "Votre message a bien été écrit et enregistré"
-    elif language == "en-US":
+    else:
         message = "Your message was written and registered successfully"
     return message
+
 
 def give_time():
     """
