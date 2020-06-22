@@ -6,9 +6,9 @@ def write_doc(text, language):
     Cette fonction a pour but d'écrire un texte dans un fichier .txt
     """
     fichier = open("Your_audio.txt", "w")
-    voice_fichier = text
-    fichier.write(voice_fichier)
+    fichier.write(text)
     fichier.close()
+
     if language == "fr-FR":
         message = "Votre message a bien été écrit et enregistré"
     else:

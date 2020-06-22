@@ -26,7 +26,7 @@ def main():
 
     # On va détecter des mots-clés dans l'audio et agir en fonction
     if language == "fr-FR":
-        if "youtube" in r.recognize_google(audio2, language=language):
+        if "patate" in r.recognize_google(audio2, language=language):
             open_url("youtube")
             message2 = "Voici votre site"
         elif "amazon" in r.recognize_google(audio2, language=language):
