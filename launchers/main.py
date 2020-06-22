@@ -1,5 +1,3 @@
-from services.WebsitesManagement import WebsitesManagement
-
 from services.AudioFunctions import *
 from services.BasicFunctions import *
 from services.TextFunctions import *
@@ -11,7 +9,7 @@ def main():
     # On instancie sr.Recognizer
     r = sr.Recognizer()
 
-    # On indique le microphone comme source de notre audio
+    # On enregistre notre première demande
     with sr.Microphone() as source:
         print('Welcome to our ProjetSpeech, you can speak now')
         speak('Welcome to our ProjetSpeech, you can speak now')
@@ -23,40 +21,40 @@ def main():
     speak(message1)
 
     # On enregistre notre requête
-    audio2 = r.listen(source)
+    with sr.Microphone() as source:
+        audio2 = r.listen(source)
 
     # On va détecter des mots-clés dans l'audio et agir en fonction
     if language == "fr-FR":
-        if "youtube" in audio2:
-            WebsitesManagement("youtube")
+        if "youtube" in r.recognize_google(audio2, language=language):
+            open_url("youtube")
             message2 = "Voici votre site"
-        elif "amazon" in audio2:
-            WebsitesManagement("amazon")
+        elif "amazon" in r.recognize_google(audio2, language=language):
+            open_url("amazon")
             message2 = "Voici votre site"
-        elif "facebook" in audio2:
-            WebsitesManagement("facebook")
+        elif "facebook" in r.recognize_google(audio2, language=language):
+            open_url("facebook")
             message2 = "Voici votre site"
-        elif "heure" in audio2:
+        elif "heure" in r.recognize_google(audio2, language=language):
             message2 = give_time()
-        elif "écris" in audio2:
+        elif "écris" in r.recognize_google(audio2, language=language):
             text = transform_audio(audio2, language)
             message2 = write_doc(text, language)
         else:
             message2 = "Je n'ai pas compris votre demande"
-
     else:
-        if "youtube" in audio2:
-            WebsitesManagement("youtube")
+        if "youtube" in r.recognize_google(audio2, language=language):
+            open_url("youtube")
             message2 = "Here's the website"
-        elif "amazon" in audio2:
-            WebsitesManagement("amazon")
+        elif "amazon" in r.recognize_google(audio2, language=language):
+            open_url("amazon")
             message2 = "Here's the website"
-        elif "facebook" in audio2:
-            WebsitesManagement("facebook")
+        elif "facebook" in r.recognize_google(audio2, language=language):
+            open_url("facebook")
             message2 = "Here's the website"
-        elif "time" in audio2:
+        elif "time" in r.recognize_google(audio2, language=language):
             message2 = give_time()
-        elif "write" in audio2:
+        elif "write" in r.recognize_google(audio2, language=language):
             text = transform_audio(audio2, language)
             message2 = write_doc(text, language)
         else:

@@ -1,6 +1,10 @@
-import speech_recognition as sr
+import webbrowser as wb
 from azure.cognitiveservices.speech import AudioDataStream, SpeechConfig, SpeechSynthesizer
 from azure.cognitiveservices.speech.audio import AudioOutputConfig
+
+
+def open_url(name):
+    return wb.get().open_new("https://www.{}.com \n".format(name))
 
 
 def speak(message):
