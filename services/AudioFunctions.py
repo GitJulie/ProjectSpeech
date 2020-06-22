@@ -21,7 +21,7 @@ def recognize_language(audio):
     return language, message
 
 
-def record_audio(audio, language):
+def transform_audio(audio, language):
     """
     Cette fonction a pour but d'enregistrer un message vocal
     """
