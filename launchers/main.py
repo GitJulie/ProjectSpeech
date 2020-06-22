@@ -11,8 +11,8 @@ def main():
 
     # On enregistre notre première demande
     with sr.Microphone() as source:
-        print('Welcome to our ProjetSpeech, you can speak now')
-        speak('Welcome to our ProjetSpeech, you can speak now')
+        print('Welcome to our ProjectSpeech, you can speak now')
+        speak('Welcome to our ProjectSpeech, you can speak now')
         audio1 = r.listen(source)
 
     # On récupère la langue détectée dans language et on lit le message signifiant la mise à l'écoute
@@ -38,7 +38,9 @@ def main():
         elif "heure" in r.recognize_google(audio2, language=language):
             message2 = give_time()
         elif "écris" in r.recognize_google(audio2, language=language):
-            text = transform_audio(audio2, language)
+            text, message = transform_audio(audio2, language)
+            print(message)
+            speak(message)
             message2 = write_doc(text, language)
         else:
             message2 = "Je n'ai pas compris votre demande"
@@ -55,7 +57,9 @@ def main():
         elif "time" in r.recognize_google(audio2, language=language):
             message2 = give_time()
         elif "write" in r.recognize_google(audio2, language=language):
-            text = transform_audio(audio2, language)
+            text, message = transform_audio(audio2, language)
+            print(message1)
+            speak(message1)
             message2 = write_doc(text, language)
         else:
             message2 = "I didn't understand your request"

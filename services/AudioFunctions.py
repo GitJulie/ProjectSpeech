@@ -9,10 +9,10 @@ def recognize_language(audio):
     # On instancie sr.Recognizer
     r = sr.Recognizer()
 
-    if 'Salut Google' in r.recognize_google(audio, language="fr-FR"):
+    if 'Salut' in r.recognize_google(audio, language="fr-FR"):
         language = "fr-FR"
         message = "Que puis-je faire pour vous ?"
-    elif 'Hey Google' in r.recognize_google(audio, language="en-US"):
+    elif 'Hello' in r.recognize_google(audio, language="en-US"):
         language = "en-US"
         message = "What can I do for you ?"
     else:
@@ -30,9 +30,9 @@ def transform_audio(audio, language):
     r = sr.Recognizer()
 
     voice_data = ''
-    message = ''
 
     if language == "fr-FR":
+        message = "Votre audio a bien été transformé"
         try:
             voice_data = r.recognize_google(audio, language=language)
         except sr.UnknownValueError:
@@ -41,6 +41,7 @@ def transform_audio(audio, language):
             message = "Votre demande est erronée"
 
     elif language == "en-US":
+        message = "Your audio was transformed successfully"
         try:
             voice_data = r.recognize_google(audio, language=language)
         except sr.UnknownValueError:
