@@ -3,31 +3,9 @@ from azure.cognitiveservices.speech import AudioDataStream, SpeechConfig, Speech
 from azure.cognitiveservices.speech.audio import AudioOutputConfig
 
 
-def recognize_language(audio):
-    """
-    Cette fonction a pour but de reconnaître la langue utilisée et de mettre Voicee en mode écoute.
-    :param audio: data_audio
-    :return: language, message
-    """
-
-    # On instancie sr.Recognizer
-    r = sr.Recognizer()
-    if 'Salut Google' in r.recognize_google(audio, language="fr-FR"):
-        language = "fr-FR"
-        message = "Que puis-je faire pour vous ?"
-    elif 'Hey Google' in r.recognize_google(audio, language="en-US"):
-        language = "en-US"
-        message = "What can I do for you ?"
-    else:
-        return print("The language has not been detected")
-    return language, message
-
-
 def speak(message):
     """
     Cette fonction a pour but de lire à voix haute un message écrit
-    :param message: text
-    :return: oral text
     """
 
     #On instancie SpeechConfig, AudioOutputConfig et SpeechSynthesizer
