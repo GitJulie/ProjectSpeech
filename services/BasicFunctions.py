@@ -13,7 +13,7 @@ def speak(message):
     """
 
     #On instancie SpeechConfig, AudioOutputConfig et SpeechSynthesizer
-    speech_config = SpeechConfig(subscription="e380a1ef788a4b6d9d614c213728ffbc", region="francecentral")
+    speech_config = SpeechConfig(subscription="9427f08d0d5a47079d66f3459efe7e0f", region="francecentral")
     audio_config = AudioOutputConfig(use_default_speaker=True)
     synthesizer = SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
 
