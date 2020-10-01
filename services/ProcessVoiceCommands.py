@@ -3,12 +3,16 @@ from services.BasicFunctions import *
 from services.TextFunctions import *
 
 
-def proccess_voice_commands(language, audio2, r, written_message):
+
+def proccess_voice_commands(language, audio2, r):
+    """
+    Cette fonction traite notre requête orale et retourne le message vocal correspondant
+    """
     if language == "fr-FR":
-        if "youtube" in r.recognize_google(audio2, language=language):
+        if "vidéo" in r.recognize_google(audio2, language=language):
             open_url("youtube")
             vocal_message = "Voici votre site"
-        elif "amazon" in r.recognize_google(audio2, language=language):
+        elif "acheter" in r.recognize_google(audio2, language=language):
             open_url("amazon")
             vocal_message = "Voici votre site"
         elif "facebook" in r.recognize_google(audio2, language=language):
@@ -36,7 +40,7 @@ def proccess_voice_commands(language, audio2, r, written_message):
         elif "time" in r.recognize_google(audio2, language=language):
             vocal_message = give_time()
         elif "write" in r.recognize_google(audio2, language=language):
-            text, message = transform_audio(audio2, language)
+            text, written_message = transform_audio(audio2, language)
             print(written_message)
             speak(written_message)
             vocal_message = write_doc(text, language)

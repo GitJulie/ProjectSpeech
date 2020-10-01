@@ -11,3 +11,8 @@ class Website(models.Model):
     url = models.CharField(max_length=50)
     def __str__(self):
         return self.name
+
+class Auteur(models.Model):
+    name = models.CharField(max_length=20)
+    def __str__(self):
+        return self.name

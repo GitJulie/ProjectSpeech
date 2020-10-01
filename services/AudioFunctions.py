@@ -1,4 +1,5 @@
 import speech_recognition as sr
+from services.BasicFunctions import speak
 
 
 def recognize_language(audio):
@@ -39,6 +40,7 @@ def transform_audio(audio, language):
             message = "Je n'ai pas compris votre demande"
         except sr.RequestError:
             message = "Votre demande est erronée"
+        speak(message)
 
     elif language == "en-US":
         message = "Your audio was transformed successfully"
@@ -48,6 +50,10 @@ def transform_audio(audio, language):
             message = "I didn't understand your request"
         except sr.RequestError:
             message = "Your request is incorrect"
+        speak(message)
+
+    else :
+        message = "Error"
 
     text = voice_data.lower()
 

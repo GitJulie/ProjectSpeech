@@ -1,7 +1,6 @@
 from services.ProcessVoiceCommands import *
 import speech_recognition as sr
 
-
 def main():
     # On instancie sr.Recognizer
     r = sr.Recognizer()
@@ -13,18 +12,17 @@ def main():
         audio1 = r.listen(source)
 
     # On récupère la langue détectée dans language et on lit le message signifiant la mise à l'écoute
-    language, written_message = recognize_language(audio1)
-    print(written_message)
-    speak(written_message)
+    language, activation_message = recognize_language(audio1)
+    print(activation_message)
+    speak(activation_message)
 
     # On enregistre notre requête
     with sr.Microphone() as source:
         audio2 = r.listen(source)
-    vocal_message = proccess_voice_commands(language, audio2, r, written_message)
-
-    speak(vocal_message)
+    request_message = proccess_voice_commands(language, audio2, r)
+    print(request_message)
+    speak(request_message)
 
 
 main()
-
 
