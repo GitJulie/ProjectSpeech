@@ -15,7 +15,7 @@ def proccess_voice_commands(language, audio2, r):
         elif "acheter" in r.recognize_google(audio2, language=language):
             open_url("amazon")
             vocal_message = "Voici votre site"
-        elif "facebook" in r.recognize_google(audio2, language=language):
+        elif "réseau" in r.recognize_google(audio2, language=language):
             open_url("facebook")
             vocal_message = "Voici votre site"
         elif "heure" in r.recognize_google(audio2, language=language):

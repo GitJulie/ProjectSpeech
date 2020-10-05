@@ -23,6 +23,5 @@ def main():
     print(request_message)
     speak(request_message)
 
-
 main()
 
