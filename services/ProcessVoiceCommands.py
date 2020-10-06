@@ -12,6 +12,9 @@ def proccess_voice_commands(language, audio2, r):
         if "vidéo" in r.recognize_google(audio2, language=language):
             open_url("youtube")
             vocal_message = "Voici votre site"
+        elif "recherche" in r.recognize_google(audio2, language=language):
+            text, message = transform_audio(audio2, language)
+            vocal_message = search(language,text)
         elif "acheter" in r.recognize_google(audio2, language=language):
             open_url("amazon")
             vocal_message = "Voici votre site"
@@ -31,6 +34,8 @@ def proccess_voice_commands(language, audio2, r):
         if "youtube" in r.recognize_google(audio2, language=language):
             open_url("youtube")
             vocal_message = "Here's the website"
+        elif "search" in r.recognize_google(audio2, language=language):
+            vocal_message = search(language,audio2)
         elif "amazon" in r.recognize_google(audio2, language=language):
             open_url("amazon")
             vocal_message = "Here's the website"

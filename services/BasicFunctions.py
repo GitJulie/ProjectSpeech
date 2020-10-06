@@ -6,6 +6,18 @@ from azure.cognitiveservices.speech.audio import AudioOutputConfig
 def open_url(name):
     return wb.get().open_new("https://www.{}.com \n".format(name))
 
+def search(langage, text):
+    if langage == "fr-FR":
+        search_term = text.split("recherche")[-1]
+        url = f"https://google.com/search?q={search_term}"
+        wb.get().open(url)
+        message = "Voici votre recherche"
+    else :
+        search_term = text.split("search")[-1]
+        url= f"https://google.com/search?q={search_term}"
+        wb.get().open(url)
+        message = "Here's your search"
+    return message
 
 def speak(message):
     """

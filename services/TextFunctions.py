@@ -1,6 +1,6 @@
-from datetime import datetime
+from datetime import *
 from tkinter.filedialog import *
-
+from tkinter import *
 
 def write_doc(text, language):
     """
@@ -15,7 +15,7 @@ def write_doc(text, language):
     fenetre.geometry("480x260")
 
     bouton1 = Button(fenetre, text="quitter", bg="red", fg="black", command=fenetre.destroy, width=15, height=3)
-    bouton2 = Button(fenetre, text="modifier", bg="blue", fg="white", command=write_doc(text,language), width=15, height=3)
+    bouton2 = Button(fenetre, text="modifier", bg="blue", fg="white", command=write_doc, width=15, height=3)
     bouton1.place(relx=.8, rely=.5, anchor="c")
     bouton2.place(relx=.8, rely=.2, anchor="c")
 
@@ -43,5 +43,5 @@ def give_time():
     """
     Cette fonction a pour but de retourner l'heure actuelle
     """
-    message = str(datetime.now())
+    message = "Voici le jour et l'heure : " + str(datetime.now())
     return message
