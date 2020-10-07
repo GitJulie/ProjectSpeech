@@ -6,8 +6,14 @@ def write_doc(text, language):
     """
     Cette fonction a pour but d'écrire un texte dans un fichier .txt
     """
+
+    if language == "fr-FR" :
+        text_split = text.split("écris")[-1]
+    else :
+        text_split = text.split("write")[-1]
+
     fichier = open("Your_audio.txt", "w")
-    fichier.write(text)
+    fichier.write(text_split)
     fichier.close()
 
     fenetre = Tk()

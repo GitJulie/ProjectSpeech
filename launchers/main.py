@@ -1,7 +1,9 @@
 from services.ProcessVoiceCommands import *
 import speech_recognition as sr
 
+
 def main():
+
     # On instancie sr.Recognizer
     r = sr.Recognizer()
 
@@ -24,4 +26,5 @@ def main():
     speak(request_message)
 
 main()
+
 

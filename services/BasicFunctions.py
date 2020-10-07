@@ -4,7 +4,7 @@ from azure.cognitiveservices.speech.audio import AudioOutputConfig
 
 
 def open_url(name):
-    return wb.get().open_new("https://www.{}.com \n".format(name))
+    return wb.get().open_new(format(name))
 
 def search(langage, text):
     if langage == "fr-FR":

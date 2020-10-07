@@ -1,6 +1,6 @@
-class Website :
+class Website(object):
 
-    def __init__(self, name, url):
+    def __init__(self, name, command_url):
         self.name = str(name)
-        self.url = url
+        self.command_url = command_url
 

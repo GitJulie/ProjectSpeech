@@ -17,7 +17,8 @@ def recognize_language(audio):
         language = "en-US"
         message = "What can I do for you ?"
     else:
-        return print("The language has not been detected")
+        message = "The language has not been detected"
+        language = "en-US"
 
     return language, message
 
