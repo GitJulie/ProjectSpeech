@@ -1,6 +1,21 @@
 from datetime import *
 from tkinter.filedialog import *
 from tkinter import *
+import speech_recognition as sr
+from services.BasicFunctions import *
+
+
+def modifier():
+    r1 = sr.Recognizer()
+    with sr.Microphone() as source:
+        audio3 = r1.listen(source)
+    text = r1.recognize_google(audio3, language='fr-FR, en-EN')
+    write_doc(text, language='fr-FR,en-EN')
+    message="Votre texte a été modifié"
+    print(message)
+    speak(message)
+
+
 
 def write_doc(text, language):
     """
@@ -21,7 +36,7 @@ def write_doc(text, language):
     fenetre.geometry("480x260")
 
     bouton1 = Button(fenetre, text="quitter", bg="red", fg="black", command=fenetre.destroy, width=15, height=3)
-    bouton2 = Button(fenetre, text="modifier", bg="blue", fg="white", command=write_doc, width=15, height=3)
+    bouton2 = Button(fenetre, text="modifier", bg="blue", fg="white", command=modifier, width=15, height=3)
     bouton1.place(relx=.8, rely=.5, anchor="c")
     bouton2.place(relx=.8, rely=.2, anchor="c")
 

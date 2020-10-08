@@ -13,7 +13,7 @@ def recognize_language(audio):
     if 'Salut' in r.recognize_google(audio, language="fr-FR"):
         language = "fr-FR"
         message = "Que puis-je faire pour vous ?"
-    elif 'Hello' in r.recognize_google(audio, language="en-US"):
+    elif 'Hello' in r.recognize_google(audio, language="en-EN"):
         language = "en-US"
         message = "What can I do for you ?"
     else:
